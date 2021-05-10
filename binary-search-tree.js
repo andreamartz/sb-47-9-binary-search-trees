@@ -260,4 +260,61 @@ class BinarySearchTree {
   }
 }
 
+const binarySearchTree = new BinarySearchTree(); 
+
+/** insert(val) */
+console.log("INSERT 15:", binarySearchTree.insert(15));
+console.log("INSERT 20:", binarySearchTree.insert(20));
+console.log("INSERT 10:", binarySearchTree.insert(10));
+console.log("INSERT 12:", binarySearchTree.insert(12));
+// console.log(binarySearchTree.root.val);  // 15
+// console.log(binarySearchTree.root.right.val);  // 20
+// console.log(binarySearchTree.root.left.right.val);  // 12
+
+
+/** insertRecursively(val) */
+// console.log("INSERTRECURSIVELY 15:", binarySearchTree.insertRecursively(15));
+// console.log(binarySearchTree.root.val);  // 15
+// console.log(binarySearchTree.root.left);  // null
+// console.log(binarySearchTree.root.right);  // null
+// console.log("INSERTRECURSIVELY 20:", binarySearchTree.insertRecursively(20));
+// console.log("INSERTRECURSIVELY 10:", binarySearchTree.insertRecursively(10));
+// console.log("INSERTRECURSIVELY 12:", binarySearchTree.insertRecursively(12));
+// console.log(binarySearchTree.root.val);  // 15
+// console.log(binarySearchTree.root.right.val);  // 20
+// console.log(binarySearchTree.root.left.right.val);  // 12
+
+
+/** find(val) */
+// var foundNode1 = binarySearchTree.find(20);
+// console.log("FOUNDNODE1.VALUE:", foundNode1.val); // 20
+// console.log("FOUNDNODE1.LEFT: ", foundNode1.left); // null
+// console.log("FOUNDNODE1.RIGHT: ", foundNode1.right); // null
+
+// var binarySearchTree2 = new BinarySearchTree();
+// var foundNode2 = binarySearchTree2.find(120);
+// console.log("FOUNDNODE2: ", foundNode2); // undefined
+
+
+/** findRecursively(val) */
+// var foundNode1 = binarySearchTree.findRecursively(20);
+// console.log("FOUNDNODE1.VALUE: ", foundNode1.val); // 20
+// console.log("FOUNDNODE1.VALUE: ", foundNode1.left); // null
+// console.log("FOUNDNODE1.VALUE: ", foundNode1.right); // null
+
+// var foundNode2 = binarySearchTree.findRecursively(120);
+// console.log("FOUNDNODE2.VALUE: ", foundNode2); // undefined
+
+/** dfSPreOrder */
+console.log("BST.INSERT(1): ",binarySearchTree.insert(1));
+console.log("BST.INSERT(5): ",binarySearchTree.insert(5));
+console.log("BST.INSERT(50): ",binarySearchTree.insert(50));
+// console.log("BST.DFSPREORDER(): ",binarySearchTree.dfsPreOrder()); // [15, 10, 1, 5, 12, 20, 50]
+
+/** dfsInOrder */
+// console.log("BST.DFSINORDER: ", binarySearchTree.dfsInOrder()); // [1, 5, 10, 12, 15, 20, 50]
+
+/** dfsPostOrder */
+console.log("BST.DFSPOSTORDER: ", binarySearchTree.dfsPostOrder()); // [5, 1, 12, 10, 50, 20, 15]
+
 module.exports = BinarySearchTree;
