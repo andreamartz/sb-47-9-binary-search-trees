@@ -116,9 +116,35 @@ class BinarySearchTree {
 
   /** find(val): search the tree for a node with value val.
    * return the node, if found; else undefined. Uses iteration. */
+   
+  /** Strategy:
+   * Use the ordered nature of the BST to find the value
+   */
 
   find(val) {
+    let current = this.root;
 
+    // while the current node is not null
+    while (current) {
+      console.log("CURRENT: ", current);
+      if (current.val === val) return current;
+
+      // node value is less than current value
+      if (val < current.val) {
+        if (current.left === null) {
+          return undefined; 
+        } else {
+          current = current.left;
+        }
+      // node value is greater than current value
+      } else {
+        if (current.right === null) {
+          return undefined;
+        } else {
+          current = current.right;
+        }
+      }
+    }
   }
 
   /** findRecursively(val): search the tree for a node with value val.
