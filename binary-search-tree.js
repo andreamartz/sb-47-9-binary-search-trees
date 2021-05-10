@@ -185,7 +185,7 @@ class BinarySearchTree {
     const visited = [];
     
     function traverseHelper(current) {
-      visited.push(current);
+      visited.push(current.val);
       if (current.left) traverseHelper(current.left);
       if (current.right) traverseHelper(current.right);
     }
