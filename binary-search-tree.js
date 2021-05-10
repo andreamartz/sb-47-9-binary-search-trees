@@ -126,7 +126,6 @@ class BinarySearchTree {
 
     // while the current node is not null
     while (current) {
-      console.log("CURRENT: ", current);
       if (current.val === val) return current;
 
       // node value is less than current value
@@ -156,22 +155,16 @@ class BinarySearchTree {
    * Recursive case: the current iteration has ended and current is not null - call findRecursively again
    */
   findRecursively(val, current = this.root) {
+    if (this.root === null) return undefined;
+
     if (current.val === val) return current;
     
     if (val < current.val) {
-      if (current.left === null) {
-        return undefined;
-      } else {
-        current = current.left;
-        return this.findRecursively(val, current);
-      }
+      if (current.left === null) return undefined;
+      return this.findRecursively(val, current.left);
     } else {
-      if (current.right === null) {
-        return undefined;
-      } else {
-        current = current.right;
-        return this.findRecursively(val, current);
-      }
+      if (current.right === null) return undefined;
+      return this.findRecursively(val, current.right);
     }
   }
 
@@ -184,10 +177,10 @@ class BinarySearchTree {
     let current = this.root;
     const visited = [];
     
-    function traverseHelper(current) {
-      visited.push(current.val);
-      if (current.left) traverseHelper(current.left);
-      if (current.right) traverseHelper(current.right);
+    function traverseHelper(node) {
+      visited.push(node.val);
+      if (node.left) traverseHelper(node.left);
+      if (node.right) traverseHelper(node.right);
     }
     traverseHelper(current);
     return visited;
@@ -202,11 +195,12 @@ class BinarySearchTree {
     let current = this.root;
     const visited = [];
     
-    function traverseHelper(current) {
-      if (current.left) traverseHelper(current.left);
-      visited.push(current.val);
-      if (current.right) traverseHelper(current.right);
+    function traverseHelper(node) {
+      if (node.left) traverseHelper(node.left);
+      visited.push(node.val);
+      if (node.right) traverseHelper(node.right);
     }
+
     traverseHelper(current);
     return visited;
   }
@@ -220,10 +214,10 @@ class BinarySearchTree {
     let current = this.root;
     const visited = [];
     
-    function traverseHelper(current) {
-      if (current.left) traverseHelper(current.left);
-      if (current.right) traverseHelper(current.right);
-      visited.push(current.val);
+    function traverseHelper(node) {
+      if (node.left) traverseHelper(node.left);
+      if (node.right) traverseHelper(node.right);
+      visited.push(node.val);
     }
     traverseHelper(current);
     return visited;
