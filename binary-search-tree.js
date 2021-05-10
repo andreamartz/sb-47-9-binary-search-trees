@@ -149,9 +149,30 @@ class BinarySearchTree {
 
   /** findRecursively(val): search the tree for a node with value val.
    * return the node, if found; else undefined. Uses recursion. */
-
-  findRecursively(val) {
-
+  
+  /** Strategy:
+   * Base case 1: current === val: return current node
+   * Base case 2: next node is null (means the value was not found) - return undefined
+   * Recursive case: the current iteration has ended and current is not null - call findRecursively again
+   */
+  findRecursively(val, current = this.root) {
+    if (current.val === val) return current;
+    
+    if (val < current.val) {
+      if (current.left === null) {
+        return undefined;
+      } else {
+        current = current.left;
+        return this.findRecursively(val, current);
+      }
+    } else {
+      if (current.right === null) {
+        return undefined;
+      } else {
+        current = current.right;
+        return this.findRecursively(val, current);
+      }
+    }
   }
 
   /** dfsPreOrder(): Traverse the array using pre-order DFS.
