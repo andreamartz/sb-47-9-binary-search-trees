@@ -70,7 +70,48 @@ class BinarySearchTree {
    * Returns the tree. Uses recursion. */
 
   insertRecursively(val) {
+    const node = new Node(val);
 
+    // if the tree has no root
+    if (!this.root) {
+      this.root = node;
+      return this;
+    }
+
+    // at this point, we know the tree already has a root
+    // and we want to find the right place to insert it into the tree
+    let current = this.root;
+
+    // compare node.val to current value
+    // choose left or right
+       // base case is when the left/right node chosen is null: assign node to it
+       // recursive case is when the left/right node is not null: call insertHelper again
+
+    function insertHelper() {
+      if (current.val === node.val) return this;
+
+      if (node.val < current.val) {
+        if (current.left === null) {
+          current.left = node;
+        } else {
+          current = current.left;
+          return insertHelper();
+        }
+      // node value is greater than current value
+      } else {
+        if (current.right === null) {
+          current.right = node;
+        } else {
+          current = current.right;
+          return insertHelper();
+        }
+      }   
+    }
+
+    insertHelper();
+
+    // return the tree
+    return this;
   }
 
   /** find(val): search the tree for a node with value val.
